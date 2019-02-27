@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 
 
-class EmployeeList extends Component {
-    componentDidMount() {
-        console.log("componentDidMount -- EmployeeList")
-    }
+export default class EmployeeList extends Component {
+
     render() {
-        console.log("render -- EmployeeList")
-        console.log("this.props", this.props)
         return (
             <section className="employees">
             {
@@ -21,5 +17,3 @@ class EmployeeList extends Component {
         )
     }
 }
-
-export default EmployeeList

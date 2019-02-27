@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 export default class LocationList extends Component {
-    componentDidMount() {
-        console.log("componentDidMount -- LocationList")
-    }
 
     render() {
-        console.log("render -- LocationList")
         return (
             <article>
                 <section>

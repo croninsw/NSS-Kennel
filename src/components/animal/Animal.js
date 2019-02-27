@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Animal extends Component {
+export default class Animal extends Component {
     render() {
 
         return (
@@ -15,5 +15,3 @@ class Animal extends Component {
         )
     }
 }
-
-export default Animal

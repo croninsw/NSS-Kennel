@@ -3,18 +3,9 @@ import "./AnimalList.css"
 import Animal from './Animal';
 
 
-class AnimalList extends Component {
-    componentDidMount() {
-        console.log("componentDidMount -- AnimalList")
-    }
-
-    componentDidUpdate () {
-        console.log("componentDidUpdate -- AnimalList")
-    }
-
+export default class AnimalList extends Component {
 
     render() {
-        console.log("render -- AnimalList")
         return (
             <article className="animals">
                 {
@@ -36,5 +27,3 @@ class AnimalList extends Component {
         )
     }
 }
-
-export default AnimalList

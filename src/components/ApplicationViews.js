@@ -5,7 +5,7 @@ import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 
 
-class ApplicationViews extends Component {
+export default class ApplicationViews extends Component {
     state = {
         owners: [],
         animalOwners: [],
@@ -14,12 +14,7 @@ class ApplicationViews extends Component {
         locations: []
     }
 
-    componentDidUpdate () {
-        console.log("componentDidUpdate -- ApplicationViews")
-    }
-
     componentDidMount() {
-        console.log("componentDidMount -- ApplicationViews")
         const newState = {}
 
         fetch("http://localhost:5002/animals")
@@ -38,28 +33,24 @@ class ApplicationViews extends Component {
             .then(r => r.json()))
             .then(animalOwners => newState.animalOwners = animalOwners)
             .then(() => this.setState(newState))
-            .then(() => this.setState(newState))
     }
 
     render() {
-        console.log("render -- ApplicationViews")
         return (
             <React.Fragment>
-                <Route exact path="/" render={(props) => {
+                <Route exact path="/" render={() => {
                     return <LocationList locations={this.state.locations} />
                 }} />
-                <Route path="/animals" render={(props) => {
+                <Route path="/animals" render={() => {
                     return <AnimalList animals={this.state.animals}
                                 owners={this.state.owners}
                                 animalOwners={this.state.animalOwners}
                                 />
                 }} />
-                <Route path="/employees" render={(props) => {
+                <Route path="/employees" render={() => {
                     return <EmployeeList employees={this.state.employees} />
                 }} />
             </React.Fragment>
         )
     }
 }
-
-export default ApplicationViews
