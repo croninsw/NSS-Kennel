@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
+import SearchResult from './SearchResults'
 
 
 export default class ApplicationViews extends Component {
@@ -12,6 +13,19 @@ export default class ApplicationViews extends Component {
         employees: [],
         animals: [],
         locations: []
+    }
+
+    deleteAnimal = id => {
+        return fetch(`http://localhost:5002/animals/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/animals`))
+        .then(e => e.json())
+        .then(animals => this.setState({
+            animals: animals
+        })
+      )
     }
 
     componentDidMount() {
@@ -42,13 +56,16 @@ export default class ApplicationViews extends Component {
                     return <LocationList locations={this.state.locations} />
                 }} />
                 <Route path="/animals" render={() => {
-                    return <AnimalList animals={this.state.animals}
+                    return <AnimalList deleteAnimal={this.deleteAnimal} animals={this.state.animals}
                                 owners={this.state.owners}
                                 animalOwners={this.state.animalOwners}
                                 />
                 }} />
                 <Route path="/employees" render={() => {
                     return <EmployeeList employees={this.state.employees} />
+                }} />
+                <Route path="/search" render={() => {
+                    return <SearchResult searchResult={this.state.searchResult} />
                 }} />
             </React.Fragment>
         )
