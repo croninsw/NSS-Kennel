@@ -4,6 +4,7 @@ import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import SearchResult from './SearchResults'
+import AnimalManager from "../modules/AnimalManager"
 
 
 export default class ApplicationViews extends Component {
@@ -41,44 +42,23 @@ export default class ApplicationViews extends Component {
             )
     }
 
-    createAnimal = id => {
-        return fetch(`http://localhost:5002/animals/${id}`, {
-
-        })
-    }
-
-    // deleteOwner = id => {
-    //     return fetch(`http://localhost:5002/owners/${id}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then(o => o.json())
-    //         .then(() => fetch(`http://localhost:5002/owners`))
-    //         .then(o => o.json())
-    //         .then(owners => this.setState({
-    //             owners: owners
-    //         })
-    //         )
-    // }
-
     componentDidMount() {
-        const newState = {}
 
-        fetch("http://localhost:5002/animals")
-            .then(r => r.json())
-            .then(animals => newState.animals = animals)
-            .then(() => fetch("http://localhost:5002/employees")
-                .then(r => r.json()))
-            .then(employees => newState.employees = employees)
-            .then(() => fetch("http://localhost:5002/locations")
-                .then(r => r.json()))
-            .then(locations => newState.locations = locations)
-            .then(() => fetch("http://localhost:5002/owners")
-                .then(r => r.json()))
-            .then(owners => newState.owners = owners)
-            .then(() => fetch("http://localhost:5002/animalOwners")
-                .then(r => r.json()))
-            .then(animalOwners => newState.animalOwners = animalOwners)
-            .then(() => this.setState(newState))
+        AnimalManager.getAll("animals").then((allAnimals) => {
+            this.setState({animals: allAnimals})
+        })
+        AnimalManager.getAll("employees").then((allEmployees) => {
+            this.setState({employees: allEmployees})
+        })
+        AnimalManager.getAll("locations").then((allLocations) => {
+            this.setState({locations: allLocations})
+        })
+        AnimalManager.getAll("owners").then((allOwners) => {
+            this.setState({owners: allOwners})
+        })
+        AnimalManager.getAll("animalOwners").then((allAnimalOwners) => {
+            this.setState({animalOwners: allAnimalOwners})
+        })
     }
 
     render() {
