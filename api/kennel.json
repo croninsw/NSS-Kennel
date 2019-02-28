@@ -1,6 +1,11 @@
 {
   "animals": [
     {
+      "id": 1,
+      "name": "Paul",
+      "breed": "A Real Dog"
+    },
+    {
       "id": 2,
       "name": "Jack",
       "breed": "Cocker Spaniel"
@@ -25,10 +30,6 @@
     {
       "id": 1,
       "name": "Jessica Younker"
-    },
-    {
-      "id": 2,
-      "name": "Jordan Nelson"
     },
     {
       "id": 3,
