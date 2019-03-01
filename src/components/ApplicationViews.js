@@ -3,8 +3,10 @@ import React, { Component } from "react"
 import AnimalList from './animal/AnimalList'
 import LocationList from './location/LocationList'
 import EmployeeList from './employee/EmployeeList'
-import SearchResult from './SearchResults'
 import AnimalManager from "../modules/AnimalManager"
+import EmployeeManager from "../modules/EmployeeManager"
+import LocationManager from "../modules/LocationManager"
+import OwnerManager from "../modules/OwnerManager"
 
 
 export default class ApplicationViews extends Component {
@@ -42,29 +44,22 @@ export default class ApplicationViews extends Component {
             )
     }
 
-    // get: {
-    //     value: function (id) {
-    //         return this.getSingle("animals")
-    //     }
-    // }
-
     componentDidMount() {
 
-        AnimalManager.getAll("animals").then((allAnimals) => {
+        AnimalManager.getAll().then((allAnimals) => {
             this.setState({animals: allAnimals})
         })
-        AnimalManager.getAll("employees").then((allEmployees) => {
+        EmployeeManager.getAll().then((allEmployees) => {
             this.setState({employees: allEmployees})
         })
-        AnimalManager.getAll("locations").then((allLocations) => {
+        LocationManager.getAll().then((allLocations) => {
             this.setState({locations: allLocations})
         })
-        AnimalManager.getAll("owners").then((allOwners) => {
+        OwnerManager.getAll().then((allOwners) => {
             this.setState({owners: allOwners})
         })
-        AnimalManager.getAll("animalOwners").then((allAnimalOwners) => {
-            this.setState({animalOwners: allAnimalOwners})
-        })
+        fetch("http://localhost:5002/animalOwners").then(r => r.json()).then(animalOwners => this.setState({animalOwners: animalOwners}))
+
     }
 
     render() {
@@ -81,9 +76,6 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route path="/employees" render={() => {
                     return <EmployeeList deleteEmployee={this.deleteEmployee} employees={this.state.employees} />
-                }} />
-                <Route path="/search" render={() => {
-                    return <SearchResult searchResult={this.state.searchResult} />
                 }} />
             </React.Fragment>
         )
