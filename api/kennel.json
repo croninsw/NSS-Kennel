@@ -1,11 +1,6 @@
 {
   "animals": [
     {
-      "id": 1,
-      "name": "Paul",
-      "breed": "A Dog"
-    },
-    {
       "id": 2,
       "name": "Jack",
       "breed": "Cocker Spaniel"

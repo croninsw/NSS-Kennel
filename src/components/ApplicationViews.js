@@ -18,18 +18,13 @@ export default class ApplicationViews extends Component {
         locations: []
     }
 
-    deleteAnimal = id => {
-        return fetch(`http://localhost:5002/animals/${id}`, {
-            method: "DELETE"
-        })
-            .then(a => a.json())
-            .then(() => fetch(`http://localhost:5002/animals`))
-            .then(a => a.json())
-            .then(animals => this.setState({
-                animals: animals
-            })
-            )
-    }
+    deleteAnimal = (id) => {
+        return AnimalManager.removeAndList(id)
+        .then(animals => this.setState({
+            animals: animals
+          })
+        )
+      }
 
     deleteEmployee = id => {
         return fetch(`http://localhost:5002/employees/${id}`, {

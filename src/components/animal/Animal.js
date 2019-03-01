@@ -13,7 +13,7 @@ export default class Animal extends Component {
                         <div>{this.props.animal.name}</div>
                         <div className="ownerList">({this.props.owners.join(", ")})</div>
                         <button
-                            onClick={() => this.props.dischargeAnimal(this.props.animal.id)}
+                            onClick={() => this.props.deleteAnimal(this.props.animal.id)}
                             className="card-link">Delete</button>
                     </h5>
                 </div>
