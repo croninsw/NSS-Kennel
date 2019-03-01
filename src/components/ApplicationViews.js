@@ -42,6 +42,12 @@ export default class ApplicationViews extends Component {
             )
     }
 
+    // get: {
+    //     value: function (id) {
+    //         return this.getSingle("animals")
+    //     }
+    // }
+
     componentDidMount() {
 
         AnimalManager.getAll("animals").then((allAnimals) => {
