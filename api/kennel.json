@@ -1,6 +1,11 @@
 {
   "animals": [
     {
+      "id": 1,
+      "name": "Paul",
+      "breed": "A Dog"
+    },
+    {
       "id": 2,
       "name": "Jack",
       "breed": "Cocker Spaniel"
@@ -16,6 +21,11 @@
       "breed": "Carolina Retriever"
     },
     {
+      "id": 5,
+      "name": "Gustav",
+      "breed": "Mutt"
+    },
+    {
       "id": 6,
       "name": "Checkers",
       "breed": "Bulldog"
@@ -24,11 +34,27 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Sam"
+    },
+    {
+      "id": 2,
+      "name": "Justina"
+    },
+    {
+      "id": 3,
+      "name": "Karen"
     },
     {
       "id": 4,
-      "name": "Blaise Roberts"
+      "name": "Dom"
+    },
+    {
+      "id": 5,
+      "name": "Bran"
+    },
+    {
+      "id": 6,
+      "name": "Connor"
     }
   ],
   "locations": [

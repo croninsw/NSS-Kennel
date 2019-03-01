@@ -6,5 +6,8 @@ export default {
   },
   getAll() {
     return fetch(`${remoteURL}/owners`).then(e => e.json())
+  },
+  getAllAnimalOwners() {
+    return fetch(`${remoteURL}/animalOwners`).then(e => e.json())
   }
 }
