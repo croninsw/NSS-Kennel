@@ -1,0 +1,27 @@
+.employees {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 30em;
+}
+
+.icon--vet {
+    width: 50px;
+    height: 50px;
+}
+
+.card {
+    flex-basis: 60%;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-link {
+    margin: 12px 0 0 0;
+    font-size: 0.7em;
+}
