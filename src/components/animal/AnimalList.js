@@ -1,40 +1,26 @@
-import React, { Component } from 'react'
-import Animal from './Animal'
+import React, { Component } from "react"
 import "./AnimalList.css"
+import AnimalCard from "./AnimalCard"
 
 export default class AnimalList extends Component {
-
-    render() {
+    render () {
         return (
-            <article className="animals">
-                <button type="button"
-                    className="btn btn-success"
-                    onClick={() => {
-                        this.props.history.push("/animals/new")
-                    }
-                    }>
-                    Admit Animal
+            <React.Fragment>
+                <div className="animalButton">
+                    <button type="button"
+                            onClick={()=> this.props.history.push("/animals/new")}
+                            className="btn btn-success">
+                        Admit Animal
                     </button>
+                </div>
+                <section className="animals">
                 {
                     this.props.animals.map(animal =>
-                        <Animal key={`${animal.id}`}
-                        animal={animal}
-                        deleteAnimal={this.props.deleteAnimal}
-                        owners={
-                            this.props.animalOwners
-
-                            .filter(ao => ao.animalId === animal.id)
-                            .map(ao =>
-                                this.props.owners.find(
-                                    o => o.id === ao.ownerId
-                                        ).name
-
-                                    )
-                            } />
+                        <AnimalCard key={animal.id} animal={animal} {...this.props} history={this.props.history} />
                     )
                 }
-            </article>
-
+                </section>
+            </React.Fragment>
         )
     }
 }

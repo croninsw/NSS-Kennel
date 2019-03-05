@@ -1,5 +1,18 @@
 {
-  "animals": [],
+  "animals": [
+    {
+      "id": 1,
+      "name": "Gustav",
+      "breed": "Mutt",
+      "employeeId": 14
+    },
+    {
+      "name": "A",
+      "breed": "A",
+      "employeeId": 14,
+      "id": 2
+    }
+  ],
   "employees": [
     {
       "id": 5,

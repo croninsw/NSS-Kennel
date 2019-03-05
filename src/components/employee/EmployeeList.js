@@ -1,40 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
+import VetIcon from "./VetIcon.png"
 import "./EmployeeList.css"
-import vet from "./VetIcon.png"
+import AnimalCard from "../animal/AnimalCard"
 
 
 export default class EmployeeList extends Component {
-
-    render() {
+    render () {
         return (
             <section className="employees">
-                <button type="button"
-                    className="btn btn-success"
-                    onClick={() => {
-                        this.props.history.push("/employees/new")
-                    }
-                    }>
-                    Hire New Employee
-                    </button>
-                {
-                    this.props.employees.map(employee =>
-                        <div key={employee.id} className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">
-                                    <img src={vet} className="icon--vet" />
-                                    {employee.name}
-                                </h5>
-                                <button
-                                    onClick={() => this.props.deleteEmployee(employee.id)
-                                        .then(() => this.props.history.push("/employees"))
-                                    }
-                                    className="card-link">Delete</button>
+            {
+                this.props.employees.map(employee =>
+                    <div key={employee.id} className="card card--employee">
+                        <div className="card-body">
+                            <h5 className="card-title">
+                                <img src={VetIcon} className="icon--vet" />
+                                {employee.name}
+                            <a href="#"
+                                onClick={() => this.props.deleteEmployee(employee.id)}
+                                className="card-link">Delete</a>
+                            </h5>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Caretaker For</h6>
+                            <div className="animals--caretaker">
+                            {
+                                this.props.animals
+                                    .filter(anml => anml.employeeId === employee.id)
+                                    .map(anml => <AnimalCard key={anml.id} animal={anml} {...this.props} />)
+                            }
                             </div>
+
                         </div>
-                    )
-                }
+                    </div>
+                )
+            }
             </section>
         )
     }
 }
-
