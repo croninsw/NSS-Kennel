@@ -1,55 +1,21 @@
 {
-  "animals": [
-    {
-      "id": 2,
-      "name": "Jack",
-      "breed": "Cocker Spaniel"
-    },
-    {
-      "id": 3,
-      "name": "Angus",
-      "breed": "Dalmatian"
-    },
-    {
-      "id": 4,
-      "name": "Henley",
-      "breed": "Carolina Retriever"
-    },
-    {
-      "id": 5,
-      "name": "Gustav",
-      "breed": "Mutt"
-    },
-    {
-      "id": 6,
-      "name": "Checkers",
-      "breed": "Bulldog"
-    }
-  ],
+  "animals": [],
   "employees": [
     {
-      "id": 1,
-      "name": "Sam"
-    },
-    {
-      "id": 2,
-      "name": "Justina"
-    },
-    {
-      "id": 3,
-      "name": "Karen"
-    },
-    {
-      "id": 4,
-      "name": "Dom"
-    },
-    {
       "id": 5,
-      "name": "Bran"
+      "name": "Brian"
     },
     {
-      "id": 6,
-      "name": "Connor"
+      "name": "Molly",
+      "id": 13
+    },
+    {
+      "name": "Sam",
+      "id": 14
+    },
+    {
+      "name": "Trevan",
+      "id": 15
     }
   ],
   "locations": [
@@ -88,21 +54,5 @@
       "name": "Angela Lee"
     }
   ],
-  "animalOwners": [
-    {
-      "id": 2,
-      "animalId": 2,
-      "ownerId": 3
-    },
-    {
-      "id": 3,
-      "animalId": 3,
-      "ownerId": 1
-    },
-    {
-      "id": 4,
-      "animalId": 4,
-      "ownerId": 2
-    }
-  ]
+  "animalOwners": []
 }
